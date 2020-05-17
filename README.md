@@ -7,3 +7,7 @@ A repository that contains examples of optimizing python files
 - Memory optimization
 - functools.lrucache
 - profiling
+
+## Sub-repositories
+
+- Setup new project
