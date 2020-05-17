@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Build information</title>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+        
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        
+        
+    </head>
+    <body class="vscode-light">
+        <h1 id="build-information">Build information</h1>
+<!-- TODO make filenames bold -->
+<!-- TODO style code and variables -->
+<h2 id="create-a-repo-on-github">Create a repo on GitHub</h2>
+<h3 id="start-from-github-recommended">Start from GitHub (Recommended)</h3>
+<ol>
+<li>Create a new repository</li>
+<li>Add <strong>project-name</strong></li>
+<li>Add description</li>
+<li>Add README.md</li>
+<li>Add LICENSE (preferably GNUv3)</li>
+<li>Add .gitignore</li>
+<li>Clone to local using <code>git clone https://github.com/D-Bhatta/</code><strong>repo-name</strong><code>.git</code></li>
+</ol>
+<h3 id="start-from-local">Start from local</h3>
+<ol>
+<li><code>git init</code> in a folder from commandline like <em>powershell</em>, <em>cmd</em>, <em>bash</em>, or <em>git bash</em></li>
+<li>Do some work</li>
+<li>Create a new repository on GitHub
+<ol>
+<li>Add project name</li>
+<li>Add description</li>
+<li>Add README.md</li>
+<li>Add LICENSE (preferably GNUv3)</li>
+<li>Add .gitignore</li>
+</ol>
+</li>
+<li>Add the remote repository using <code>git remote add origin https://github.com/D-Bhatta/</code><strong>repo-name</strong><code>.git</code></li>
+<li>Pull changes from remote using <code>git pull origin master</code></li>
+<li>See local changes with <code>git status</code></li>
+<li>Add local changes with <code>git add *</code> or <code>git add</code> <strong>filename(s)</strong> or <code>git commit -a -m &quot;</code><strong>message</strong><code>&quot;</code></li>
+<li>Commit local changes with <code>git commit</code> <em>return, followed by typing a commit message out with a title and a body in an editor</em> or <code>git commit -m &quot;</code><strong>message</strong><code>&quot;</code></li>
+<li>Push changes to remote with <code>git push --set-upstream origin master</code>, this also sets origin master as the remote upstream branch</li>
+</ol>
+<h2 id="setup-project">Setup Project</h2>
+<ol>
+<li><code>python -m venv</code> <strong>environment-name</strong></li>
+<li>Add environment file name to <strong>.gitignore</strong> file</li>
+<li>Create <strong>requirements_dev.txt</strong> file and add <em>pip</em>, <em>wheel</em>, <em>black</em>, <em>pytest</em>, <em>pytest-cov</em>, <em>twine</em>, and <em>coveralls</em> to it</li>
+<li>Activate environment by executing it's <strong>environment-name</strong><code>\Scripts\</code><strong>activate.bat</strong> file in <em>cmd</em></li>
+<li>Install requirements using <code>pip install -r requirements_dev.txt</code></li>
+<li>Create primary project folder  as <strong>project-name</strong> and inside it
+<ol>
+<li>Create primary python file with same name as <strong>project-name.py</a></strong></li>
+<li>Add a hello world function, with one arg, that the function then prints to <strong>project-name.py</a></strong>—just like template at the end of this file</li>
+<li>Create <strong><strong>init</strong>.py</strong> and leave it empty</li>
+</ol>
+</li>
+<li>Create <strong>setup.py</a></strong> file using template at the end of this file</li>
+<li>Pull changes from remote using <code>git pull</code></li>
+<li>See local changes with <code>git status</code></li>
+<li>Add local changes with <code>git add *</code> or <code>git add</code> <strong>filename(s)</strong></li>
+<li>Commit local changes with <code>git commit</code> <em>return, followed by typing a commit message out with a title and a body in an editor</em> or <code>git commit -m &quot;</code><strong>message</strong><code>&quot;</code></li>
+<li>Push changes to remote with <code>git push</code></li>
+<li>Create a new branch using <code>git checkout -b</code> <strong>branch-name</strong></li>
+<li>Build project using <code>python setup.py sdist bdist_wheel</code></li>
+<li>Install in <strong>environment-name</strong> using <code>pip install -e .</code></li>
+<li>Create <em>tests</em> folder
+<ol>
+<li>Create a <em>test_<strong>project-name</strong>.py</em> file</li>
+<li>Write tests first capturing output, and then checking <em>TypeError</em>, as in template functions at the end of this file</li>
+<li>Make sure tests fail first, in keeping with good practices</li>
+</ol>
+</li>
+<li>Run tests using <code>pytest</code></li>
+<li>Run test coverage using <code>pytest --cov=</code><strong>project-name</strong></li>
+<li>Fix any errors and run tests again</li>
+<li>Run black to fix any style errors using <code>black</code> <strong>project-name</strong><code>/</code> and <code>black tests/</code></li>
+<li>If there are any build artefacts delete them</li>
+<li>Update build version in <strong>setup.py</strong></li>
+<li>Build project using <code>python setup.py sdist bdist_wheel</code></li>
+<li>Pull changes from remote using <code>git pull</code></li>
+<li>See local changes with <code>git status</code></li>
+<li>Add local changes with <code>git add *</code> or <code>git add</code> <strong>filename(s)</strong></li>
+<li>Commit local changes with <code>git commit</code> <em>return, followed by typing a commit message out with a title and a body in an editor</em> or <code>git commit -m &quot;</code><strong>message</strong><code>&quot;</code></li>
+<li>Push changes to remote with <code>git push origin</code> <strong>branch-name</strong></li>
+<li>Create pull request on github</li>
+<li>Merge PR</li>
+<li>Create a new branch using <code>git checkout -b</code> <strong>branch-name</strong></li>
+<li>Create <strong>.pypirc</strong> file in home directory (User folder of PC) using the template at the end of this file</li>
+<li>Publish to TestPyPl with <code>twine upload -r testpypi dist/**</code></li>
+<li>Create a test environment using <code>python -m venv</code> <strong>environment-name-test</strong></li>
+<li>Add environment file name to <strong>.gitignore</strong> file</li>
+<li>Activate environment by executing it's <strong>environment-name-test</strong><code>\Scripts\</code><strong>activate.bat</strong> file in <em>cmd</em></li>
+<li>Install package into environment using <code>pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple</code> <strong>project-name</strong></li>
+<li>Test whether package works by calling <em>helloworld</em> function in IPython</li>
+<li>Fix any errors and run tests again</li>
+<li>Run black to fix any style errors using <code>black</code> <strong>project-name</strong><code>/</code> and <code>black tests/</code></li>
+<li>Update build version in <strong>setup.py</strong></li>
+<li>Build project using <code>python setup.py sdist bdist_wheel</code></li>
+<li>Pull changes from remote using <code>git pull</code></li>
+<li>See local changes with <code>git status</code></li>
+<li>Add local changes with <code>git add *</code> or <code>git add</code> <strong>filename(s)</strong></li>
+<li>Commit local changes with <code>git commit</code> <em>return, followed by typing a commit message out with a title and a body in an editor</em> or <code>git commit -m &quot;</code><strong>message</strong><code>&quot;</code></li>
+<li>Push changes to remote with <code>git push origin</code> <strong>branch-name</strong></li>
+<li>Create pull request on github</li>
+<li>Merge PR</li>
+<li>Publish to TestPyPl with <code>twine upload -r testpypi dist/**</code></li>
+<li>Create a new branch using <code>git checkout -b</code> <strong>branch-name</strong></li>
+<li>Create a <strong>.travis.yml</strong> file using the template at the end of this file</li>
+<li>Toggle repo on in <a href="https://travis-ci.org/">travis-ci</a></li>
+<li>Toggle repo on in <a href="https://coveralls.io/">coveralls</a></li>
+<li>Pull changes from remote using <code>git pull</code></li>
+<li>See local changes with <code>git status</code></li>
+<li>Add local changes with <code>git add *</code> or <code>git add</code> <strong>filename(s)</strong></li>
+<li>Commit local changes with <code>git commit</code> <em>return, followed by typing a commit message out with a title and a body in an editor</em> or <code>git commit -m &quot;</code><strong>message</strong><code>&quot;</code></li>
+<li>Push changes to remote with <code>git push origin</code> <strong>branch-name</strong></li>
+<li>Create pull request on github</li>
+<li>If build fails
+<ol>
+<li>Fix any <a href="https://travis-ci.org/">travis-ci</a> errors</li>
+<li>Fix any <a href="https://coveralls.io/">coveralls</a> errors</li>
+<li>See local changes with <code>git status</code></li>
+<li>Add local changes with <code>git add *</code> or <code>git add</code> <strong>filename(s)</strong></li>
+<li>Commit local changes with <code>git commit</code> <em>return, followed by typing a commit message out with a title and a body in an editor</em> or <code>git commit -m &quot;</code><strong>message</strong><code>&quot;</code></li>
+<li>Push changes to remote with <code>git push origin</code> <strong>branch-name</strong></li>
+</ol>
+</li>
+<li>Merge PR</li>
+<li>Toggel repo on <a href="https://pyup.io/">PyUp</a></li>
+</ol>
+<h2 id="templates">Templates</h2>
+<h3 id="primary-python-file-template">Primary python file Template</h3>
+<pre><code>def helloworld(object):
+    &quot;&quot;&quot; 
+    Print a line 
+    args:
+        object (str): name of the object
+    returns:
+        None
+    &quot;&quot;&quot;
+    if type(object) != str:
+        raise TypeError
+
+    print(&quot;I am a {}.&quot;.format(object))
+</code></pre>
+<h3 id="setuppy-template">setup.py</a> Template</h3>
+<pre><code>from setuptools import setup, find_packages
+
+with open(&quot;README.md&quot;, &quot;r&quot;) as readme_file:
+    readme = readme_file.read()
+
+requirements = []
+
+setup(
+    name=&quot;project-name&quot;,
+    version=&quot;0.0.1&quot;,
+    author=&quot;D-Bhatta&quot;,
+    author_email=&quot;email&quot;,
+    description=&quot;project-description&quot;,
+    long_description=readme,
+    long_description_content_type=&quot;text/markdown&quot;,
+    url=&quot;https://github.com/D-Bhatta/**repo-name**.git&quot;,
+    packages=find_packages(),
+    install_requires=requirements,
+    classifiers=[
+        &quot;Programming Language :: Python :: python-version&quot;,
+        &quot;License :: OSI Approved :: GNU General Public License v3 (GPLv3)&quot;,
+    ],
+)
+</code></pre>
+<h3 id="test-functions-template">Test functions Template</h3>
+<pre><code>&quot;&quot;&quot; Tests for 'project-name' package &quot;&quot;&quot;
+import pytest
+from project-name import project-name
+
+def test_helloworld(capsys):
+    &quot;&quot;&quot; Correct object argument prints &quot;&quot;&quot;
+    project-name.helloworld(&quot;cat&quot;)
+    captured = capsys.readouterr()
+    assert &quot;cat&quot; in captured.out
+def test_helloworld_exception():
+    with pytest.raises(TypeError):
+        project-name.helloworld(1)
+</code></pre>
+<h3 id="pypirc-file-template">.pypirc file Template</h3>
+<pre><code>[disutils]
+index-servers = 
+    testpypi
+[testpypi]
+repository: https://test.pypi.org/legacy/
+username = D-Bhatta
+password = password-for-user
+</code></pre>
+<h3 id="travisyml-template">.travis.yml Template</h3>
+<pre><code>dist: xenial
+language: python
+python: 3.7.2
+install:
+- pip install -r requirements_dev.txt
+- pip install -e .
+script:
+- black hammerai/
+- pytest
+- pytest --cov=hammerai
+after_success:
+- coveralls
+</code></pre>
+
+    </body>
+    </html>
