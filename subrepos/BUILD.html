@@ -30,7 +30,7 @@
 <li>Create a new repository</li>
 <li>Add <strong>project-name</strong></li>
 <li>Add description</li>
-<li>Add README.md</li>
+<li>Add <a href="http://README.md">README.md</a></li>
 <li>Add LICENSE (preferably GNUv3)</li>
 <li>Add .gitignore</li>
 <li>Clone to local using <code>git clone https://github.com/D-Bhatta/</code><strong>repo-name</strong><code>.git</code></li>
@@ -43,7 +43,7 @@
 <ol>
 <li>Add project name</li>
 <li>Add description</li>
-<li>Add README.md</li>
+<li>Add <a href="http://README.md">README.md</a></li>
 <li>Add LICENSE (preferably GNUv3)</li>
 <li>Add .gitignore</li>
 </ol>
@@ -57,6 +57,7 @@
 </ol>
 <h2 id="setup-project">Setup Project</h2>
 <ol>
+<li>Create a VS Code workspace as <strong>repo-name</strong><code>.code-workspace</code></li>
 <li><code>python -m venv</code> <strong>environment-name</strong></li>
 <li>Add environment file name to <strong>.gitignore</strong> file</li>
 <li>Create <strong>requirements_dev.txt</strong> file and add <em>pip</em>, <em>wheel</em>, <em>black</em>, <em>pytest</em>, <em>pytest-cov</em>, <em>twine</em>, and <em>coveralls</em> to it</li>
@@ -64,12 +65,12 @@
 <li>Install requirements using <code>pip install -r requirements_dev.txt</code></li>
 <li>Create primary project folder  as <strong>project-name</strong> and inside it
 <ol>
-<li>Create primary python file with same name as <strong>project-name.py</a></strong></li>
-<li>Add a hello world function, with one arg, that the function then prints to <strong>project-name.py</a></strong>—just like template at the end of this file</li>
+<li>Create primary python file with same name as <strong><a href="http://project-name.py">project-name.py</a></strong></li>
+<li>Add a hello world function, with one arg, that the function then prints to <strong><a href="http://project-name.py">project-name.py</a></strong>—just like template at the end of this file</li>
 <li>Create <strong><strong>init</strong>.py</strong> and leave it empty</li>
 </ol>
 </li>
-<li>Create <strong>setup.py</a></strong> file using template at the end of this file</li>
+<li>Create <strong><a href="http://setup.py">setup.py</a></strong> file using template at the end of this file</li>
 <li>Pull changes from remote using <code>git pull</code></li>
 <li>See local changes with <code>git status</code></li>
 <li>Add local changes with <code>git add *</code> or <code>git add</code> <strong>filename(s)</strong></li>
@@ -90,7 +91,7 @@
 <li>Fix any errors and run tests again</li>
 <li>Run black to fix any style errors using <code>black</code> <strong>project-name</strong><code>/</code> and <code>black tests/</code></li>
 <li>If there are any build artefacts delete them</li>
-<li>Update build version in <strong>setup.py</strong></li>
+<li>Update build version in <strong><a href="http://setup.py">setup.py</a></strong></li>
 <li>Build project using <code>python setup.py sdist bdist_wheel</code></li>
 <li>Pull changes from remote using <code>git pull</code></li>
 <li>See local changes with <code>git status</code></li>
@@ -109,7 +110,7 @@
 <li>Test whether package works by calling <em>helloworld</em> function in IPython</li>
 <li>Fix any errors and run tests again</li>
 <li>Run black to fix any style errors using <code>black</code> <strong>project-name</strong><code>/</code> and <code>black tests/</code></li>
-<li>Update build version in <strong>setup.py</strong></li>
+<li>Update build version in <strong><a href="http://setup.py">setup.py</a></strong></li>
 <li>Build project using <code>python setup.py sdist bdist_wheel</code></li>
 <li>Pull changes from remote using <code>git pull</code></li>
 <li>See local changes with <code>git status</code></li>
@@ -157,7 +158,7 @@
 
     print(&quot;I am a {}.&quot;.format(object))
 </code></pre>
-<h3 id="setuppy-template">setup.py</a> Template</h3>
+<h3 id="setuppy-template"><a href="http://setup.py">setup.py</a> Template</h3>
 <pre><code>from setuptools import setup, find_packages
 
 with open(&quot;README.md&quot;, &quot;r&quot;) as readme_file:
