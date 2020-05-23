@@ -182,13 +182,13 @@
 
     dist: xenial
     language: python
-    python: 3.7.2
+    python: 3.7.6
     install:
     - pip install -r requirements_dev.txt
     - pip install -e .
     script:
-    - black hammerai/
+    - black project-name/
     - pytest
-    - pytest --cov=hammerai
+    - pytest --cov=project-name
     after_success:
     - coveralls
