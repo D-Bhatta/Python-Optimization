@@ -3,6 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <title>Build information</title>
+        <style>
+</style>
         
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
@@ -19,6 +21,7 @@
         </style>
         
         
+        
     </head>
     <body class="vscode-light">
         <h1 id="build-information">Build information</h1>
@@ -30,7 +33,7 @@
 <li>Create a new repository</li>
 <li>Add <strong>project-name</strong></li>
 <li>Add description</li>
-<li>Add <a href="http://README.md">README.md</a></li>
+<li>Add <a href="http://README.html">README.md</a></li>
 <li>Add LICENSE (preferably GNUv3)</li>
 <li>Add .gitignore</li>
 <li>Clone to local using <code>git clone https://github.com/D-Bhatta/</code><strong>repo-name</strong><code>.git</code></li>
@@ -43,7 +46,7 @@
 <ol>
 <li>Add project name</li>
 <li>Add description</li>
-<li>Add <a href="http://README.md">README.md</a></li>
+<li>Add <a href="http://README.html">README.md</a></li>
 <li>Add LICENSE (preferably GNUv3)</li>
 <li>Add .gitignore</li>
 </ol>
@@ -209,14 +212,14 @@ password = password-for-user
 <h3 id="travisyml-template">.travis.yml Template</h3>
 <pre><code>dist: xenial
 language: python
-python: 3.7.2
+python: 3.7.6
 install:
 - pip install -r requirements_dev.txt
 - pip install -e .
 script:
-- black hammerai/
+- black project-name/
 - pytest
-- pytest --cov=hammerai
+- pytest --cov=project-name
 after_success:
 - coveralls
 </code></pre>
