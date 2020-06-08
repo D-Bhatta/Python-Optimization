@@ -182,13 +182,15 @@
 
     dist: xenial
     language: python
-    python: 3.7.6
+    python: 3.8.3
     install:
     - pip install -r requirements_dev.txt
     - pip install -e .
     script:
-    - black project-name/
+    - black --check project-name/
     - pytest
-    - pytest --cov=project-name
+    - pytest --cov=project-name --cov-fail-under=100
     after_success:
     - coveralls
+    env:
+    - PYTHONBREAKPOINT=0
