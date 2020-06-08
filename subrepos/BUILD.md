@@ -92,23 +92,26 @@
 51. Publish to TestPyPl with `twine upload -r testpypi dist/**`
 52. Create a new branch using `git checkout -b` **branch-name**
 53. Create a **.travis.yml** file using the template at the end of this file
-54. Toggle repo on in [travis-ci](https://travis-ci.org/)
-55. Toggle repo on in [coveralls](https://coveralls.io/)
-56. Pull changes from remote using `git pull`
-57. See local changes with `git status`
-58. Add local changes with `git add *` or `git add` **filename(s)**
-59. Commit local changes with `git commit` *return, followed by typing a commit message out with a title and a body in an editor* or `git commit -m "`**message**`"`
-60. Push changes to remote with `git push origin` **branch-name**
-61. Create pull request on github
-62. If build fails
+54. Create a **.pre-commit-config.yaml** file using the template at the end of this file
+55. Toggle repo on in [travis-ci](https://travis-ci.org/)
+56. Toggle repo on in [coveralls](https://coveralls.io/)
+57. Install git pre-commit hooks using `pre-commit install`
+58. Run pre-commit hooks once using `pre-commit run --all-files`
+59. Pull changes from remote using `git pull`
+60. See local changes with `git status`
+61. Add local changes with `git add *` or `git add` **filename(s)**
+62. Commit local changes with `git commit` *return, followed by typing a commit message out with a title and a body in an editor* or `git commit -m "`**message**`"`
+63. Push changes to remote with `git push origin` **branch-name**
+64. Create pull request on github
+65. If build fails
     1. Fix any [travis-ci](https://travis-ci.org/) errors
     2. Fix any [coveralls](https://coveralls.io/) errors
     3. See local changes with `git status`
     4. Add local changes with `git add *` or `git add` **filename(s)**
     5. Commit local changes with `git commit` *return, followed by typing a commit message out with a title and a body in an editor* or `git commit -m "`**message**`"`
     6. Push changes to remote with `git push origin` **branch-name**
-63. Merge PR
-64. Toggel repo on [PyUp](https://pyup.io/)
+66. Merge PR
+67. Toggel repo on [PyUp](https://pyup.io/)
 
 ## Templates
 
@@ -194,3 +197,58 @@
     - coveralls
     env:
     - PYTHONBREAKPOINT=0
+
+### .pre-commit-config.yaml
+
+    repos:
+    -   repo: https://github.com/psf/black
+        rev: 19.10b0
+        hooks:
+        -   id: black
+    -   repo: https://github.com/pre-commit/pre-commit-hooks
+        rev: v3.1.0
+        hooks:
+        -   id: check-yaml
+        -   id: end-of-file-fixer
+        -   id: trailing-whitespace
+        -   id: debug-statements
+        -   id: check-merge-conflict
+        -   id: check-xml
+        -   id: check-json
+        -   id: check-docstring-first
+        -   id: requirements-txt-fixer
+        -   id: detect-private-key
+    -   repo: https://github.com/asottile/blacken-docs
+        rev: v1.7.0
+        hooks:
+        -   id: blacken-docs
+        additional_dependencies:
+        - black==19.3b0
+    -   repo: https://github.com/asottile/setup-cfg-fmt
+        rev: v1.9.0
+        hooks:
+        -   id: setup-cfg-fmt
+    -   repo: https://github.com/timothycrosley/isort
+        rev: 4.3.21
+        hooks:
+        -   id: isort
+    -   repo: https://github.com/pre-commit/pygrep-hooks
+        rev: v1.5.1
+        hooks:
+        -   id: rst-backticks
+    -   repo: https://github.com/adrienverge/yamllint.git
+        rev: v1.23.0
+        hooks:
+        -   id: yamllint
+        args:
+        - --format
+        - parsable
+        - --strict
+    -   repo: https://github.com/Lucas-C/pre-commit-hooks-lxml
+        rev: v1.1.0
+        hooks:
+        -   id: forbid-html-img-without-alt-text
+    - repo: https://github.com/Lucas-C/pre-commit-hooks-markup
+      rev: v1.0.0
+      hooks:
+      - id: rst-linter
