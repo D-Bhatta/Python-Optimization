@@ -79,7 +79,8 @@
     2. See local changes with `git status`
     3. Add local changes with `git add *` or `git add` **filename(s)**
     4. Commit local changes with `git commit` *return, followed by typing a commit message out with a title and a body in an editor* or `git commit -m "`**message**`"`
-    5. Push changes to remote with `git push origin` **branch-name**
+    5. If there are pre-commit errors, fix, add changes, and recommit
+    6. Push changes to remote with `git push origin` **branch-name**
 41. Merge PR
 42. Create a new branch using `git checkout -b` **branch-name**
 43. Modify *README.md* using template at the end of this file, and customise it as required.
@@ -95,7 +96,8 @@
     2. See local changes with `git status`
     3. Add local changes with `git add *` or `git add` **filename(s)**
     4. Commit local changes with `git commit` *return, followed by typing a commit message out with a title and a body in an editor* or `git commit -m "`**message**`"`
-    5. Push changes to remote with `git push origin` **branch-name**
+    5. If there are pre-commit errors, fix, add changes, and recommit
+    6. Push changes to remote with `git push origin` **branch-name**
 52. Merge PR
 53. Create a new branch using `git checkout -b` **branch-name**
 54. Create a new Google Colab notebook as **project-name.ipynb**
@@ -150,7 +152,8 @@
     2. See local changes with `git status`
     3. Add local changes with `git add *` or `git add` **filename(s)**
     4. Commit local changes with `git commit` *return, followed by typing a commit message out with a title and a body in an editor* or `git commit -m "`**message**`"`
-    5. Push changes to remote with `git push origin` **branch-name**
+    5. If there are pre-commit errors, fix, add changes, and recommit
+    6. Push changes to remote with `git push origin` **branch-name**
 67. Merge PR
 68. Export **project-name.py** file
 69. Update *README.md*
