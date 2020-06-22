@@ -103,17 +103,19 @@
 62. See local changes with `git status`
 63. Add local changes with `git add *` or `git add` **filename(s)**
 64. Commit local changes with `git commit` *return, followed by typing a commit message out with a title and a body in an editor* or `git commit -m "`**message**`"`
-65. Push changes to remote with `git push origin` **branch-name**
-66. Create pull request on github
-67. If build fails
+65. If there are pre-commit errors, fix, add changes, and recommit
+66. Push changes to remote with `git push origin` **branch-name**
+67. Create pull request on github
+68. If build fails
     1. Fix any [travis-ci](https://travis-ci.org/) errors
     2. Fix any [coveralls](https://coveralls.io/) errors
     3. See local changes with `git status`
     4. Add local changes with `git add *` or `git add` **filename(s)**
     5. Commit local changes with `git commit` *return, followed by typing a commit message out with a title and a body in an editor* or `git commit -m "`**message**`"`
-    6. Push changes to remote with `git push origin` **branch-name**
-68. Merge PR
-69. Toggel repo on [PyUp](https://pyup.io/)
+    6. If there are pre-commit errors, fix, add changes, and recommit
+    7. Push changes to remote with `git push origin` **branch-name**
+69. Merge PR
+70. Toggel repo on [PyUp](https://pyup.io/)
 
 ## Templates
 
