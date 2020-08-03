@@ -131,7 +131,7 @@
     twine==3.1.1
     wheel==0.34.2
 
-### Primary python file Template
+### project-name.py
 
     def helloworld(object):
         """ 
@@ -146,7 +146,7 @@
 
         print("I am a {}.".format(object))
 
-### setup.py Template
+### setup.py
 
     from setuptools import setup, find_packages
 
@@ -172,7 +172,7 @@
         ],
     )
 
-### Test functions Template
+### test_project-name.py
 
     """ Tests for 'project-name' package """
     import pytest
@@ -187,7 +187,7 @@
         with pytest.raises(TypeError):
             project-name.helloworld(1)
 
-### .pypirc file Template
+### .pypirc file
 
     [disutils]
     index-servers = 
@@ -197,7 +197,7 @@
     username = D-Bhatta
     password = password-for-user
 
-### .travis.yml Template
+### .travis.yml
 
     dist: xenial
     language: python
