@@ -129,10 +129,34 @@
 <p>Create a VS Code workspace as <strong>repo-name</strong><code>.code-workspace</code></p>
 </li>
 <li>
+<p>Pull changes from remote using <code>git pull</code></p>
+</li>
+<li>
+<p>Create a new branch using <code>git checkout -b</code> <strong>setup</strong></p>
+</li>
+<li>
 <p><code>python -m venv</code> <strong>environment-name</strong></p>
 </li>
 <li>
 <p>Add environment file name to <strong>.gitignore</strong> file</p>
+</li>
+<li>
+<p>Pull changes from remote using <code>git pull</code></p>
+</li>
+<li>
+<p>See local changes with <code>git status</code></p>
+</li>
+<li>
+<p>Add local changes with <code>git add *</code> or <code>git add</code> <strong>filename(s)</strong></p>
+</li>
+<li>
+<p>Commit local changes with <code>git commit</code> <em>return, followed by typing a commit message out with a title and a body in an editor</em> or <code>git commit -m "</code><strong>message</strong><code>"</code></p>
+</li>
+<li>
+<p>Push changes to remote with <code>git push origin</code> <strong>branch-name</strong></p>
+</li>
+<li>
+<p>Create pull request on github</p>
 </li>
 <li>
 <p>Create <strong>requirements_dev.txt</strong> file and add <em>pip</em>, <em>wheel</em>, <em>black</em>, <em>pytest</em>, <em>pytest-cov</em>, <em>grip</em>, and <em>pre-commit</em> to it—using the template at the end of this file</p>
@@ -153,27 +177,9 @@
 <p>Create <em>notebooks</em> folder</p>
 </li>
 <li>
-<p>Pull changes from remote using <code>git pull</code></p>
-</li>
-<li>
-<p>See local changes with <code>git status</code></p>
-</li>
-<li>
-<p>Add local changes with <code>git add *</code> or <code>git add</code> <strong>filename(s)</strong></p>
-</li>
-<li>
-<p>Commit local changes with <code>git commit</code> <em>return, followed by typing a commit message out with a title and a body in an editor</em> or <code>git commit -m "</code><strong>message</strong><code>"</code></p>
-</li>
-<li>
-<p>Push changes to remote with <code>git push</code></p>
-</li>
-<li>
-<p>Create a new branch using <code>git checkout -b</code> <strong>branch-name</strong></p>
-</li>
-<li>
 <p>Create <em>tests</em> folder</p>
 <ol>
-<li>Create a <em>test_<strong>project-name</strong>.py</em> file</li>
+<li>Create a <em>test_<strong>project-name</strong>.py</em> file using the template at the end of this file</li>
 <li>Make sure tests fail first, in keeping with good practices</li>
 </ol>
 </li>
@@ -185,30 +191,6 @@
 </li>
 <li>
 <p>Run black to fix any style errors using <code>black</code> <strong>project-name</strong><code>/</code> and <code>black tests/</code></p>
-</li>
-<li>
-<p>Pull changes from remote using <code>git pull</code></p>
-</li>
-<li>
-<p>See local changes with <code>git status</code></p>
-</li>
-<li>
-<p>Add local changes with <code>git add *</code> or <code>git add</code> <strong>filename(s)</strong></p>
-</li>
-<li>
-<p>Commit local changes with <code>git commit</code> <em>return, followed by typing a commit message out with a title and a body in an editor</em> or <code>git commit -m "</code><strong>message</strong><code>"</code></p>
-</li>
-<li>
-<p>Push changes to remote with <code>git push origin</code> <strong>branch-name</strong></p>
-</li>
-<li>
-<p>Create pull request on github</p>
-</li>
-<li>
-<p>Merge PR</p>
-</li>
-<li>
-<p>Create a new branch using <code>git checkout -b</code> <strong>branch-name</strong></p>
 </li>
 <li>
 <p>Create a <strong>.travis.yml</strong> file using the template at the end of this file</p>
@@ -226,25 +208,7 @@
 <p>Run pre-commit hooks once using <code>pre-commit run --all-files</code></p>
 </li>
 <li>
-<p>Pull changes from remote using <code>git pull</code></p>
-</li>
-<li>
-<p>See local changes with <code>git status</code></p>
-</li>
-<li>
-<p>Add local changes with <code>git add *</code> or <code>git add</code> <strong>filename(s)</strong></p>
-</li>
-<li>
-<p>Commit local changes with <code>git commit</code> <em>return, followed by typing a commit message out with a title and a body in an editor</em> or <code>git commit -m "</code><strong>message</strong><code>"</code></p>
-</li>
-<li>
 <p>If there are pre-commit errors, fix, add changes, and recommit</p>
-</li>
-<li>
-<p>Push changes to remote with <code>git push origin</code> <strong>branch-name</strong></p>
-</li>
-<li>
-<p>Create pull request on github</p>
 </li>
 <li>
 <p>If build fails</p>
@@ -260,57 +224,9 @@
 <li>Push changes to remote with <code>git push origin</code> <strong>branch-name</strong>
 </li>
 </ol>
-</li>
-<li>
-<p>Merge PR</p>
-</li>
-<li>
-<p>Create a new branch using <code>git checkout -b</code> <strong>branch-name</strong></p>
 </li>
 <li>
 <p>Modify <em>README.md</em> using template at the end of this file, and customise it as required.</p>
-</li>
-<li>
-<p>Pull changes from remote using <code>git pull</code></p>
-</li>
-<li>
-<p>See local changes with <code>git status</code></p>
-</li>
-<li>
-<p>Add local changes with <code>git add *</code> or <code>git add</code> <strong>filename(s)</strong></p>
-</li>
-<li>
-<p>Commit local changes with <code>git commit</code> <em>return, followed by typing a commit message out with a title and a body in an editor</em> or <code>git commit -m "</code><strong>message</strong><code>"</code></p>
-</li>
-<li>
-<p>If there are pre-commit errors, fix, add changes, and recommit</p>
-</li>
-<li>
-<p>Push changes to remote with <code>git push origin</code> <strong>branch-name</strong></p>
-</li>
-<li>
-<p>Create pull request on github</p>
-</li>
-<li>
-<p>If build fails</p>
-<ol>
-<li>Fix any <a href="https://travis-ci.org/" rel="nofollow">travis-ci</a> errors</li>
-<li>See local changes with <code>git status</code>
-</li>
-<li>Add local changes with <code>git add *</code> or <code>git add</code> <strong>filename(s)</strong>
-</li>
-<li>Commit local changes with <code>git commit</code> <em>return, followed by typing a commit message out with a title and a body in an editor</em> or <code>git commit -m "</code><strong>message</strong><code>"</code>
-</li>
-<li>If there are pre-commit errors, fix, add changes, and recommit</li>
-<li>Push changes to remote with <code>git push origin</code> <strong>branch-name</strong>
-</li>
-</ol>
-</li>
-<li>
-<p>Merge PR</p>
-</li>
-<li>
-<p>Create a new branch using <code>git checkout -b</code> <strong>branch-name</strong></p>
 </li>
 <li>
 <p>Create a new Google Colab notebook as <strong>project-name.ipynb</strong></p>
@@ -329,6 +245,15 @@
 <div class="highlight highlight-source-python"><pre>!p<span class="pl-s1">ip</span> <span class="pl-s1">install</span> <span class="pl-s1">tensorflow</span>
 !p<span class="pl-s1">ip</span> <span class="pl-s1">install</span> <span class="pl-s1">tensorflow</span><span class="pl-c1">-</span><span class="pl-s1">gpu</span>
 !p<span class="pl-s1">ip</span> <span class="pl-s1">install</span> <span class="pl-s1">keras</span></pre></div>
+</li>
+<li>
+<p>Import modules</p>
+<div class="highlight highlight-source-python"><pre><span class="pl-k">import</span> <span class="pl-s1">tensorflow</span> <span class="pl-k">as</span> <span class="pl-s1">tf</span>
+<span class="pl-k">import</span> <span class="pl-s1">matplotlib</span>.<span class="pl-s1">pyplot</span> <span class="pl-k">as</span> <span class="pl-s1">plt</span>
+<span class="pl-k">import</span> <span class="pl-s1">keras</span>
+<span class="pl-k">import</span> <span class="pl-s1">numpy</span> <span class="pl-k">as</span> <span class="pl-s1">np</span>
+<span class="pl-k">import</span> <span class="pl-s1">pandas</span> <span class="pl-k">as</span> <span class="pl-s1">pd</span>
+<span class="pl-k">from</span> <span class="pl-s1">google</span>.<span class="pl-s1">colab</span> <span class="pl-k">import</span> <span class="pl-s1">files</span></pre></div>
 </li>
 <li>
 <p>Check version using</p>
@@ -354,43 +279,19 @@
 <p>Export notebook to notebooks folder</p>
 </li>
 <li>
+<p>Merge PR</p>
+</li>
+<li>
+<p>Checkout master branch with <code>git checkout master</code></p>
+</li>
+<li>
 <p>Pull changes from remote using <code>git pull</code></p>
 </li>
 <li>
-<p>See local changes with <code>git status</code></p>
+<p>Create a new branch using <code>git checkout -b</code> <strong>branch-name</strong></p>
 </li>
 <li>
-<p>Add local changes with <code>git add *</code> or <code>git add</code> <strong>filename(s)</strong></p>
-</li>
-<li>
-<p>Commit local changes with <code>git commit</code> <em>return, followed by typing a commit message out with a title and a body in an editor</em> or <code>git commit -m "</code><strong>message</strong><code>"</code></p>
-</li>
-<li>
-<p>If there are pre-commit errors, fix, add changes, and recommit</p>
-</li>
-<li>
-<p>Push changes to remote with <code>git push origin</code> <strong>branch-name</strong></p>
-</li>
-<li>
-<p>Create pull request on github</p>
-</li>
-<li>
-<p>If build fails</p>
-<ol>
-<li>Fix any <a href="https://travis-ci.org/" rel="nofollow">travis-ci</a> errors</li>
-<li>See local changes with <code>git status</code>
-</li>
-<li>Add local changes with <code>git add *</code> or <code>git add</code> <strong>filename(s)</strong>
-</li>
-<li>Commit local changes with <code>git commit</code> <em>return, followed by typing a commit message out with a title and a body in an editor</em> or <code>git commit -m "</code><strong>message</strong><code>"</code>
-</li>
-<li>If there are pre-commit errors, fix, add changes, and recommit</li>
-<li>Push changes to remote with <code>git push origin</code> <strong>branch-name</strong>
-</li>
-</ol>
-</li>
-<li>
-<p>Merge PR</p>
+<p>Do your work</p>
 </li>
 <li>
 <p>Export <strong>project-name.py</strong> file</p>
@@ -415,21 +316,21 @@ pytest-cov==2.9.0
 wheel==0.34.2
 </code></pre>
 <h3>
-<a id="user-content-test-functions-template" class="anchor" href="#test-functions-template" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Test functions Template</h3>
+<a id="user-content-test_project-namepy" class="anchor" href="#test_project-namepy" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>test_<strong>project-name</strong>.py</h3>
 <pre><code>""" Tests for 'project-name'"""
 import pytest
 def test_basic():
     assert 2 == 3 , "This is supposed to fail"
 </code></pre>
 <h3>
-<a id="user-content-travisyml-template" class="anchor" href="#travisyml-template" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>.travis.yml Template</h3>
+<a id="user-content-travisyml" class="anchor" href="#travisyml" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>.travis.yml</h3>
 <pre><code>dist: xenial
 language: python
 python: 3.8.3
 install:
 - pip install -r requirements_dev.txt
 script:
-- black --check
+- black --check .
 - pytest
 env:
 - PYTHONBREAKPOINT=0
