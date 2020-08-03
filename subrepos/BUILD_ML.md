@@ -55,7 +55,7 @@
     2. Make sure tests fail first, in keeping with good practices
 19. Run tests using `pytest`
 20. Fix any errors and run tests again
-21. Run black to fix any style errors using `black` **project-name**`/` and `black tests/`
+21. Run black to fix any style errors using `black .`
 22. Create a **.travis.yml** file using the template at the end of this file
 23. Create a **.pre-commit-config.yaml** file using the template at the end of this file
 24. Toggle repo on in [travis-ci](https://travis-ci.org/)
@@ -136,10 +136,10 @@
 
     black==19.10b0
     grip==4.5.2
-    pip==20.1.1
-    pre-commit==2.5.1
-    pytest==5.4.3
-    pytest-cov==2.9.0
+    pip==20.2
+    pre-commit==2.6.0
+    pytest==6.0.1
+    pytest-cov==2.10.0
     wheel==0.34.2
 
 ### test_**project-name**.py
