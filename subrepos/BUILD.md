@@ -118,8 +118,8 @@ wheel==0.34.2
 
 ```python
 def helloworld(object):
-    """ 
-    Print a line 
+    """
+    Print a line
     args:
         object (str): name of the object
     returns:
@@ -178,13 +178,15 @@ def test_helloworld_exception():
 
 ### .pypirc file
 
-    [disutils]
-    index-servers = 
-        testpypi
-    [testpypi]
-    repository: https://test.pypi.org/legacy/
-    username = D-Bhatta
-    password = password-for-user
+```txt
+[disutils]
+index-servers =
+    testpypi
+[testpypi]
+repository: https://test.pypi.org/legacy/
+username = D-Bhatta
+password = password-for-user
+```
 
 ### .travis.yml
 
@@ -264,5 +266,36 @@ repos:
     rev: v1.0.0
     hooks:
       - id: rst-linter
+
+```
+
+### README.md
+
+```markdown
+# Descriptive Title
+
+Description of project
+
+## Table of Contents
+
+.
+
+## Sections
+
+.
+
+## Notes
+
+1. .
+
+## Project Status
+
+.
+
+## Additional Information
+
+### Screenshots
+
+### Links
 
 ```
