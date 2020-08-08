@@ -118,8 +118,8 @@ wheel==0.34.2
 
 ```python
 def helloworld(object):
-    """ 
-    Print a line 
+    """
+    Print a line
     args:
         object (str): name of the object
     returns:
@@ -180,7 +180,7 @@ def test_helloworld_exception():
 
 ```txt
 [disutils]
-index-servers = 
+index-servers =
     testpypi
 [testpypi]
 repository: https://test.pypi.org/legacy/
@@ -266,5 +266,36 @@ repos:
     rev: v1.0.0
     hooks:
       - id: rst-linter
+
+```
+
+### README.md
+
+```markdown
+# Descriptive Title
+
+Description of project
+
+## Table of Contents
+
+.
+
+## Sections
+
+.
+
+## Notes
+
+1. .
+
+## Project Status
+
+.
+
+## Additional Information
+
+### Screenshots
+
+### Links
 
 ```
