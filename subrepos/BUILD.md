@@ -178,13 +178,15 @@ def test_helloworld_exception():
 
 ### .pypirc file
 
-    [disutils]
-    index-servers = 
-        testpypi
-    [testpypi]
-    repository: https://test.pypi.org/legacy/
-    username = D-Bhatta
-    password = password-for-user
+```txt
+[disutils]
+index-servers = 
+    testpypi
+[testpypi]
+repository: https://test.pypi.org/legacy/
+username = D-Bhatta
+password = password-for-user
+```
 
 ### .travis.yml
 
