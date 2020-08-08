@@ -127,10 +127,25 @@
 <ol>
 <li>Create a VS Code workspace as <strong>repo-name</strong><code>.code-workspace</code>
 </li>
+<li>Pull changes from remote using <code>git pull</code>
+</li>
+<li>Create a new branch using <code>git checkout -b</code> <strong>setup</strong>
+</li>
 <li>
 <code>python -m venv</code> <strong>environment-name</strong>
 </li>
 <li>Add environment file name to <strong>.gitignore</strong> file</li>
+<li>Pull changes from remote using <code>git pull</code>
+</li>
+<li>See local changes with <code>git status</code>
+</li>
+<li>Add local changes with <code>git add *</code> or <code>git add</code> <strong>filename(s)</strong>
+</li>
+<li>Commit local changes with <code>git commit</code> <em>return, followed by typing a commit message out with a title and a body in an editor</em> or <code>git commit -m "</code><strong>message</strong><code>"</code>
+</li>
+<li>Push changes to remote with <code>git push origin setup</code>
+</li>
+<li>Create pull request on github</li>
 <li>Create <strong>requirements_dev.txt</strong> file and add <em>pip</em>, <em>wheel</em>, <em>black</em>, <em>pytest</em>, <em>pytest-cov</em>, <em>twine</em>, <em>grip</em>, <em>pre-commit</em>, and <em>coveralls</em> to it—using the template at the end of this file</li>
 <li>Check outdated system packages with <code>pip list --outdated</code>
 </li>
@@ -138,7 +153,7 @@
 </li>
 <li>Activate environment by executing it's <strong>environment-name</strong><code>\Scripts\</code><strong>activate.bat</strong> file in <em>cmd</em>
 </li>
-<li>Install requirements using <code>pip install -r requirements_dev.txt</code>
+<li>Install requirements using <code>python -m pip install -r requirements_dev.txt</code>
 </li>
 <li>Create primary project folder  as <strong>project-name</strong> and inside it
 <ol>
@@ -149,18 +164,6 @@
 </ol>
 </li>
 <li>Create <strong>setup.py</strong> file using template at the end of this file</li>
-<li>Pull changes from remote using <code>git pull</code>
-</li>
-<li>See local changes with <code>git status</code>
-</li>
-<li>Add local changes with <code>git add *</code> or <code>git add</code> <strong>filename(s)</strong>
-</li>
-<li>Commit local changes with <code>git commit</code> <em>return, followed by typing a commit message out with a title and a body in an editor</em> or <code>git commit -m "</code><strong>message</strong><code>"</code>
-</li>
-<li>Push changes to remote with <code>git push</code>
-</li>
-<li>Create a new branch using <code>git checkout -b</code> <strong>branch-name</strong>
-</li>
 <li>Build project using <code>python setup.py sdist bdist_wheel</code>
 </li>
 <li>Install in <strong>environment-name</strong> using <code>pip install -e .</code>
@@ -177,26 +180,12 @@
 <li>Run test coverage using <code>pytest --cov=</code><strong>project-name</strong>
 </li>
 <li>Fix any errors and run tests again</li>
-<li>Run black to fix any style errors using <code>black</code> <strong>project-name</strong><code>/</code> and <code>black tests/</code>
+<li>Run black to fix any style errors using <code>black .</code>
 </li>
 <li>If there are any build artefacts delete them</li>
 <li>Update build version in <strong>setup.py</strong>
 </li>
 <li>Build project using <code>python setup.py sdist bdist_wheel</code>
-</li>
-<li>Pull changes from remote using <code>git pull</code>
-</li>
-<li>See local changes with <code>git status</code>
-</li>
-<li>Add local changes with <code>git add *</code> or <code>git add</code> <strong>filename(s)</strong>
-</li>
-<li>Commit local changes with <code>git commit</code> <em>return, followed by typing a commit message out with a title and a body in an editor</em> or <code>git commit -m "</code><strong>message</strong><code>"</code>
-</li>
-<li>Push changes to remote with <code>git push origin</code> <strong>branch-name</strong>
-</li>
-<li>Create pull request on github</li>
-<li>Merge PR</li>
-<li>Create a new branch using <code>git checkout -b</code> <strong>branch-name</strong>
 </li>
 <li>Create <strong>.pypirc</strong> file in home directory (User folder of PC) using the template at the end of this file</li>
 <li>Publish to TestPyPl with <code>twine upload -r testpypi dist/**</code>
@@ -210,27 +199,13 @@
 </li>
 <li>Test whether package works by calling <em>helloworld</em> function in IPython</li>
 <li>Fix any errors and run tests again</li>
-<li>Run black to fix any style errors using <code>black</code> <strong>project-name</strong><code>/</code> and <code>black tests/</code>
+<li>Run black to fix any style errors using <code>black .</code>
 </li>
 <li>Update build version in <strong>setup.py</strong>
 </li>
 <li>Build project using <code>python setup.py sdist bdist_wheel</code>
 </li>
-<li>Pull changes from remote using <code>git pull</code>
-</li>
-<li>See local changes with <code>git status</code>
-</li>
-<li>Add local changes with <code>git add *</code> or <code>git add</code> <strong>filename(s)</strong>
-</li>
-<li>Commit local changes with <code>git commit</code> <em>return, followed by typing a commit message out with a title and a body in an editor</em> or <code>git commit -m "</code><strong>message</strong><code>"</code>
-</li>
-<li>Push changes to remote with <code>git push origin</code> <strong>branch-name</strong>
-</li>
-<li>Create pull request on github</li>
-<li>Merge PR</li>
 <li>Publish to TestPyPl with <code>twine upload -r testpypi dist/**</code>
-</li>
-<li>Create a new branch using <code>git checkout -b</code> <strong>branch-name</strong>
 </li>
 <li>Create a <strong>.travis.yml</strong> file using the template at the end of this file</li>
 <li>Create a <strong>.pre-commit-config.yaml</strong> file using the template at the end of this file</li>
@@ -242,18 +217,9 @@
 </li>
 <li>Run pre-commit hooks once using <code>pre-commit run --all-files</code>
 </li>
-<li>Pull changes from remote using <code>git pull</code>
-</li>
-<li>See local changes with <code>git status</code>
-</li>
-<li>Add local changes with <code>git add *</code> or <code>git add</code> <strong>filename(s)</strong>
-</li>
-<li>Commit local changes with <code>git commit</code> <em>return, followed by typing a commit message out with a title and a body in an editor</em> or <code>git commit -m "</code><strong>message</strong><code>"</code>
-</li>
 <li>If there are pre-commit errors, fix, add changes, and recommit</li>
-<li>Push changes to remote with <code>git push origin</code> <strong>branch-name</strong>
+<li>Push changes to remote with <code>git push origin setup</code>
 </li>
-<li>Create pull request on github</li>
 <li>If build fails
 <ol>
 <li>Fix any <a href="https://travis-ci.org/" rel="nofollow">travis-ci</a> errors</li>
@@ -277,76 +243,73 @@
 <a id="user-content-templates" class="anchor" href="#templates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Templates</h2>
 <h3>
 <a id="user-content-requirements_devtxt" class="anchor" href="#requirements_devtxt" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>requirements_dev.txt</h3>
-<pre><code>black==19.10b0
-coveralls==2.0.0
+<pre lang="txt"><code>black==19.10b0
+coveralls==2.1.1
 grip==4.5.2
-pip==20.1.1
-pre-commit==2.5.1
-pytest==5.4.3
-pytest-cov==2.9.0
-twine==3.1.1
+pip==20.2
+pre-commit==2.6.0
+pytest==6.0.1
+pytest-cov==2.10.0
+twine== 3.2.0
 wheel==0.34.2
 </code></pre>
 <h3>
-<a id="user-content-primary-python-file-template" class="anchor" href="#primary-python-file-template" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Primary python file Template</h3>
-<pre><code>def helloworld(object):
-    """ 
-    Print a line 
-    args:
-        object (str): name of the object
-    returns:
-        None
-    """
-    if type(object) != str:
-        raise TypeError
+<a id="user-content-project-namepy" class="anchor" href="#project-namepy" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>project-name.py</h3>
+<div class="highlight highlight-source-python"><pre><span class="pl-k">def</span> <span class="pl-en">helloworld</span>(<span class="pl-s1">object</span>):
+    <span class="pl-s">"""</span>
+<span class="pl-s">    Print a line</span>
+<span class="pl-s">    args:</span>
+<span class="pl-s">        object (str): name of the object</span>
+<span class="pl-s">    returns:</span>
+<span class="pl-s">        None</span>
+<span class="pl-s">    """</span>
+    <span class="pl-k">if</span> <span class="pl-en">type</span>(<span class="pl-s1">object</span>) <span class="pl-c1">!=</span> <span class="pl-s1">str</span>:
+        <span class="pl-k">raise</span> <span class="pl-v">TypeError</span>
 
-    print("I am a {}.".format(object))
-</code></pre>
+    <span class="pl-en">print</span>(<span class="pl-s">"I am a {}."</span>.<span class="pl-en">format</span>(<span class="pl-s1">object</span>))</pre></div>
 <h3>
-<a id="user-content-setuppy-template" class="anchor" href="#setuppy-template" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>setup.py Template</h3>
-<pre><code>from setuptools import setup, find_packages
+<a id="user-content-setuppy" class="anchor" href="#setuppy" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>setup.py</h3>
+<div class="highlight highlight-source-python"><pre><span class="pl-k">from</span> <span class="pl-s1">setuptools</span> <span class="pl-k">import</span> <span class="pl-s1">setup</span>, <span class="pl-s1">find_packages</span>
 
-with open("README.md", "r") as readme_file:
-    readme = readme_file.read()
+<span class="pl-k">with</span> <span class="pl-en">open</span>(<span class="pl-s">"README.md"</span>, <span class="pl-s">"r"</span>) <span class="pl-k">as</span> <span class="pl-s1">readme_file</span>:
+    <span class="pl-s1">readme</span> <span class="pl-c1">=</span> <span class="pl-s1">readme_file</span>.<span class="pl-en">read</span>()
 
-requirements = []
+<span class="pl-s1">requirements</span> <span class="pl-c1">=</span> []
 
-setup(
-    name="project-name",
-    version="0.0.1",
-    author="D-Bhatta",
-    author_email="email",
-    description="project-description",
-    long_description=readme,
-    long_description_content_type="text/markdown",
-    url="https://github.com/D-Bhatta/**repo-name**.git",
-    packages=find_packages(),
-    install_requires=requirements,
-    classifiers=[
-        "Programming Language :: Python :: python-version",
-        "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+<span class="pl-en">setup</span>(
+    <span class="pl-s1">name</span><span class="pl-c1">=</span><span class="pl-s">"project-name"</span>,
+    <span class="pl-s1">version</span><span class="pl-c1">=</span><span class="pl-s">"0.0.1"</span>,
+    <span class="pl-s1">author</span><span class="pl-c1">=</span><span class="pl-s">"D-Bhatta"</span>,
+    <span class="pl-s1">author_email</span><span class="pl-c1">=</span><span class="pl-s">"email"</span>,
+    <span class="pl-s1">description</span><span class="pl-c1">=</span><span class="pl-s">"project-description"</span>,
+    <span class="pl-s1">long_description</span><span class="pl-c1">=</span><span class="pl-s1">readme</span>,
+    <span class="pl-s1">long_description_content_type</span><span class="pl-c1">=</span><span class="pl-s">"text/markdown"</span>,
+    <span class="pl-s1">url</span><span class="pl-c1">=</span><span class="pl-s">"https://github.com/D-Bhatta/**repo-name**.git"</span>,
+    <span class="pl-s1">packages</span><span class="pl-c1">=</span><span class="pl-en">find_packages</span>(),
+    <span class="pl-s1">install_requires</span><span class="pl-c1">=</span><span class="pl-s1">requirements</span>,
+    <span class="pl-s1">classifiers</span><span class="pl-c1">=</span>[
+        <span class="pl-s">"Programming Language :: Python :: python-version"</span>,
+        <span class="pl-s">"License :: OSI Approved :: GNU General Public License v3 (GPLv3)"</span>,
     ],
-)
-</code></pre>
+)</pre></div>
 <h3>
-<a id="user-content-test-functions-template" class="anchor" href="#test-functions-template" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Test functions Template</h3>
-<pre><code>""" Tests for 'project-name' package """
-import pytest
-from project-name import project-name
+<a id="user-content-test_project-namepy" class="anchor" href="#test_project-namepy" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>test_project-name.py</h3>
+<div class="highlight highlight-source-python"><pre><span class="pl-s">""" Tests for 'project-name' package """</span>
+<span class="pl-k">import</span> <span class="pl-s1">pytest</span>
+<span class="pl-k">from</span> <span class="pl-s1">project</span><span class="pl-c1">-</span><span class="pl-s1">name</span> <span class="pl-k">import</span> <span class="pl-s1">project</span><span class="pl-c1">-</span><span class="pl-s1">name</span>
 
-def test_helloworld(capsys):
-    """ Correct object argument prints """
-    project-name.helloworld("cat")
-    captured = capsys.readouterr()
-    assert "cat" in captured.out
-def test_helloworld_exception():
-    with pytest.raises(TypeError):
-        project-name.helloworld(1)
-</code></pre>
+<span class="pl-k">def</span> <span class="pl-en">test_helloworld</span>(<span class="pl-s1">capsys</span>):
+    <span class="pl-s">""" Correct object argument prints """</span>
+    <span class="pl-s1">project</span><span class="pl-c1">-</span><span class="pl-s1">name</span>.<span class="pl-en">helloworld</span>(<span class="pl-s">"cat"</span>)
+    <span class="pl-s1">captured</span> <span class="pl-c1">=</span> <span class="pl-s1">capsys</span>.<span class="pl-en">readouterr</span>()
+    <span class="pl-k">assert</span> <span class="pl-s">"cat"</span> <span class="pl-c1">in</span> <span class="pl-s1">captured</span>.<span class="pl-s1">out</span>
+<span class="pl-k">def</span> <span class="pl-en">test_helloworld_exception</span>():
+    <span class="pl-k">with</span> <span class="pl-s1">pytest</span>.<span class="pl-en">raises</span>(<span class="pl-v">TypeError</span>):
+        <span class="pl-s1">project</span><span class="pl-c1">-</span><span class="pl-s1">name</span>.<span class="pl-en">helloworld</span>(<span class="pl-c1">1</span>)</pre></div>
 <h3>
-<a id="user-content-pypirc-file-template" class="anchor" href="#pypirc-file-template" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>.pypirc file Template</h3>
-<pre><code>[disutils]
-index-servers = 
+<a id="user-content-pypirc-file" class="anchor" href="#pypirc-file" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>.pypirc file</h3>
+<pre lang="txt"><code>[disutils]
+index-servers =
     testpypi
 [testpypi]
 repository: https://test.pypi.org/legacy/
@@ -354,77 +317,108 @@ username = D-Bhatta
 password = password-for-user
 </code></pre>
 <h3>
-<a id="user-content-travisyml-template" class="anchor" href="#travisyml-template" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>.travis.yml Template</h3>
-<pre><code>dist: xenial
-language: python
-python: 3.8.3
-install:
-- pip install -r requirements_dev.txt
-- pip install -e .
-script:
-- black --check project-name/
-- pytest
-- pytest --cov=project-name --cov-fail-under=100
-after_success:
-- coveralls
-env:
-- PYTHONBREAKPOINT=0
-</code></pre>
+<a id="user-content-travisyml" class="anchor" href="#travisyml" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>.travis.yml</h3>
+<div class="highlight highlight-source-yaml"><pre>---
+
+<span class="pl-ent">dist</span>: <span class="pl-s">xenial</span>
+<span class="pl-ent">language</span>: <span class="pl-s">python</span>
+<span class="pl-ent">python</span>: <span class="pl-s">3.8.3</span>
+<span class="pl-ent">install</span>:
+  - <span class="pl-s">pip install -r requirements_dev.txt</span>
+  - <span class="pl-s">pip install -e .</span>
+<span class="pl-ent">script</span>:
+  - <span class="pl-s">black --check .</span>
+  - <span class="pl-s">pytest</span>
+  - <span class="pl-s">pytest --cov=project-name --cov-fail-under=100</span>
+<span class="pl-ent">after_success</span>:
+  - <span class="pl-s">coveralls</span>
+<span class="pl-ent">env</span>:
+  - <span class="pl-s">PYTHONBREAKPOINT=0</span></pre></div>
 <h3>
 <a id="user-content-pre-commit-configyaml" class="anchor" href="#pre-commit-configyaml" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>.pre-commit-config.yaml</h3>
-<pre><code>repos:
-  - repo: 'https://github.com/psf/black'
-    rev: 19.10b0
-    hooks:
-      - id: black
-  - repo: 'https://github.com/pre-commit/pre-commit-hooks'
-    rev: v3.1.0
-    hooks:
-      - id: check-yaml
-      - id: end-of-file-fixer
-      - id: trailing-whitespace
-      - id: debug-statements
-      - id: check-merge-conflict
-      - id: check-xml
-      - id: check-json
-      - id: check-docstring-first
-      - id: requirements-txt-fixer
-      - id: detect-private-key
-  - repo: 'https://github.com/asottile/blacken-docs'
-    rev: v1.7.0
-    hooks:
-      - id: blacken-docs
-    additional_dependencies:
-      - black==19.3b0
-  - repo: 'https://github.com/asottile/setup-cfg-fmt'
-    rev: v1.9.0
-    hooks:
-      - id: setup-cfg-fmt
-  - repo: 'https://github.com/timothycrosley/isort'
-    rev: 4.3.21
-    hooks:
-      - id: isort
-  - repo: 'https://github.com/pre-commit/pygrep-hooks'
-    rev: v1.5.1
-    hooks:
-      - id: rst-backticks
-  - repo: 'https://github.com/adrienverge/yamllint.git'
-    rev: v1.23.0
-    hooks:
-      - id: yamllint
-    args:
-      - '--format'
-      - parsable
-      - '--strict'
-  - repo: 'https://github.com/Lucas-C/pre-commit-hooks-lxml'
-    rev: v1.1.0
-    hooks:
-      - id: forbid-html-img-without-alt-text
-  - repo: 'https://github.com/Lucas-C/pre-commit-hooks-markup'
-    rev: v1.0.0
-    hooks:
-      - id: rst-linter
-</code></pre>
+<div class="highlight highlight-source-yaml"><pre>---
+
+<span class="pl-ent">repos</span>:
+  - <span class="pl-ent">repo</span>: <span class="pl-s"><span class="pl-pds">'</span>https://github.com/psf/black<span class="pl-pds">'</span></span>
+    <span class="pl-ent">rev</span>: <span class="pl-s">19.10b0</span>
+    <span class="pl-ent">hooks</span>:
+      - <span class="pl-ent">id</span>: <span class="pl-s">black</span>
+  - <span class="pl-ent">repo</span>: <span class="pl-s"><span class="pl-pds">'</span>https://github.com/pre-commit/pre-commit-hooks<span class="pl-pds">'</span></span>
+    <span class="pl-ent">rev</span>: <span class="pl-s">v3.2.0</span>
+    <span class="pl-ent">hooks</span>:
+      - <span class="pl-ent">id</span>: <span class="pl-s">check-yaml</span>
+      - <span class="pl-ent">id</span>: <span class="pl-s">end-of-file-fixer</span>
+      - <span class="pl-ent">id</span>: <span class="pl-s">trailing-whitespace</span>
+      - <span class="pl-ent">id</span>: <span class="pl-s">debug-statements</span>
+      - <span class="pl-ent">id</span>: <span class="pl-s">check-merge-conflict</span>
+      - <span class="pl-ent">id</span>: <span class="pl-s">check-xml</span>
+      - <span class="pl-ent">id</span>: <span class="pl-s">check-json</span>
+      - <span class="pl-ent">id</span>: <span class="pl-s">check-docstring-first</span>
+      - <span class="pl-ent">id</span>: <span class="pl-s">requirements-txt-fixer</span>
+      - <span class="pl-ent">id</span>: <span class="pl-s">detect-private-key</span>
+  - <span class="pl-ent">repo</span>: <span class="pl-s"><span class="pl-pds">'</span>https://github.com/asottile/blacken-docs<span class="pl-pds">'</span></span>
+    <span class="pl-ent">rev</span>: <span class="pl-s">v1.7.0</span>
+    <span class="pl-ent">hooks</span>:
+      - <span class="pl-ent">id</span>: <span class="pl-s">blacken-docs</span>
+    <span class="pl-ent">additional_dependencies</span>:
+      - <span class="pl-s">black==19.3b0</span>
+  - <span class="pl-ent">repo</span>: <span class="pl-s"><span class="pl-pds">'</span>https://github.com/asottile/setup-cfg-fmt<span class="pl-pds">'</span></span>
+    <span class="pl-ent">rev</span>: <span class="pl-s">v1.11.0</span>
+    <span class="pl-ent">hooks</span>:
+      - <span class="pl-ent">id</span>: <span class="pl-s">setup-cfg-fmt</span>
+  - <span class="pl-ent">repo</span>: <span class="pl-s"><span class="pl-pds">'</span>https://github.com/timothycrosley/isort<span class="pl-pds">'</span></span>
+    <span class="pl-ent">rev</span>: <span class="pl-s">5.2.2</span>
+    <span class="pl-ent">hooks</span>:
+      - <span class="pl-ent">id</span>: <span class="pl-s">isort</span>
+  - <span class="pl-ent">repo</span>: <span class="pl-s"><span class="pl-pds">'</span>https://github.com/pre-commit/pygrep-hooks<span class="pl-pds">'</span></span>
+    <span class="pl-ent">rev</span>: <span class="pl-s">v1.5.1</span>
+    <span class="pl-ent">hooks</span>:
+      - <span class="pl-ent">id</span>: <span class="pl-s">rst-backticks</span>
+  - <span class="pl-ent">repo</span>: <span class="pl-s"><span class="pl-pds">'</span>https://github.com/adrienverge/yamllint.git<span class="pl-pds">'</span></span>
+    <span class="pl-ent">rev</span>: <span class="pl-s">v1.24.2</span>
+    <span class="pl-ent">hooks</span>:
+      - <span class="pl-ent">id</span>: <span class="pl-s">yamllint</span>
+    <span class="pl-ent">args</span>:
+      - <span class="pl-s"><span class="pl-pds">'</span>--format<span class="pl-pds">'</span></span>
+      - <span class="pl-s">parsable</span>
+      - <span class="pl-s"><span class="pl-pds">'</span>--strict<span class="pl-pds">'</span></span>
+  - <span class="pl-ent">repo</span>: <span class="pl-s"><span class="pl-pds">'</span>https://github.com/Lucas-C/pre-commit-hooks-lxml<span class="pl-pds">'</span></span>
+    <span class="pl-ent">rev</span>: <span class="pl-s">v1.1.0</span>
+    <span class="pl-ent">hooks</span>:
+      - <span class="pl-ent">id</span>: <span class="pl-s">forbid-html-img-without-alt-text</span>
+  - <span class="pl-ent">repo</span>: <span class="pl-s"><span class="pl-pds">'</span>https://github.com/Lucas-C/pre-commit-hooks-markup<span class="pl-pds">'</span></span>
+    <span class="pl-ent">rev</span>: <span class="pl-s">v1.0.0</span>
+    <span class="pl-ent">hooks</span>:
+      - <span class="pl-ent">id</span>: <span class="pl-s">rst-linter</span>
+</pre></div>
+<h3>
+<a id="user-content-readmemd" class="anchor" href="#readmemd" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>README.md</h3>
+<div class="highlight highlight-source-gfm"><pre><span class="pl-mh"><span class="pl-mh">#</span><span class="pl-mh"> </span>Descriptive Title</span>
+
+Description of project
+
+<span class="pl-mh"><span class="pl-mh">##</span><span class="pl-mh"> </span>Table of Contents</span>
+
+.
+
+<span class="pl-mh"><span class="pl-mh">##</span><span class="pl-mh"> </span>Sections</span>
+
+.
+
+<span class="pl-mh"><span class="pl-mh">##</span><span class="pl-mh"> </span>Notes</span>
+
+<span class="pl-v">1.</span> .
+
+<span class="pl-mh"><span class="pl-mh">##</span><span class="pl-mh"> </span>Project Status</span>
+
+.
+
+<span class="pl-mh"><span class="pl-mh">##</span><span class="pl-mh"> </span>Additional Information</span>
+
+<span class="pl-mh"><span class="pl-mh">###</span><span class="pl-mh"> </span>Screenshots</span>
+
+<span class="pl-mh"><span class="pl-mh">###</span><span class="pl-mh"> </span>Links</span>
+</pre></div>
 
               </article>
             </div>
