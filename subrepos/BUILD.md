@@ -34,7 +34,7 @@
 ## Setup Project
 
 1. Create a VS Code workspace as **repo-name**`.code-workspace`
-2. Pull changes from remote using `git pull`
+2. Pull changes from remote using `git pull origin master`
 3. Create a new branch using `git checkout -b` **setup**
 4. `python -m venv` **environment-name**
 5. Add environment file name to **.gitignore** file
@@ -200,7 +200,7 @@ install:
   - pip install -r requirements_dev.txt
   - pip install -e .
 script:
-  - black --check .
+  - black --line-length=79 --check .
   - pytest
   - pytest --cov=project-name --cov-fail-under=100
 after_success:
@@ -219,6 +219,7 @@ repos:
     rev: 19.10b0
     hooks:
       - id: black
+        args: [--line-length=79]
   - repo: 'https://github.com/pre-commit/pre-commit-hooks'
     rev: v3.2.0
     hooks:
@@ -236,8 +237,8 @@ repos:
     rev: v1.7.0
     hooks:
       - id: blacken-docs
-    additional_dependencies:
-      - black==19.3b0
+        additional_dependencies:
+          - black==19.3b0
   - repo: 'https://github.com/asottile/setup-cfg-fmt'
     rev: v1.11.0
     hooks:
@@ -254,10 +255,10 @@ repos:
     rev: v1.24.2
     hooks:
       - id: yamllint
-    args:
-      - '--format'
-      - parsable
-      - '--strict'
+        args:
+          - '--format'
+          - parsable
+          - '--strict'
   - repo: 'https://github.com/Lucas-C/pre-commit-hooks-lxml'
     rev: v1.1.0
     hooks:

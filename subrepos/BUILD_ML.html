@@ -190,13 +190,22 @@
 <p>Fix any errors and run tests again</p>
 </li>
 <li>
-<p>Run black to fix any style errors using <code>black</code> <strong>project-name</strong><code>/</code> and <code>black tests/</code></p>
+<p>Run black to fix any style errors using <code>black .</code></p>
 </li>
 <li>
 <p>Create a <strong>.travis.yml</strong> file using the template at the end of this file</p>
 </li>
 <li>
 <p>Create a <strong>.pre-commit-config.yaml</strong> file using the template at the end of this file</p>
+</li>
+<li>
+<p>Create a <strong>config.json</strong> file using the template at the end of this file</p>
+</li>
+<li>
+<p>Create a <strong>docstrings.md</strong> file using the template at the end of this file</p>
+</li>
+<li>
+<p>Create a <strong>.prettierignore</strong> file using the template at the end of this file</p>
 </li>
 <li>
 <p>Toggle repo on in <a href="https://travis-ci.org/" rel="nofollow">travis-ci</a></p>
@@ -307,117 +316,377 @@
 <a id="user-content-templates" class="anchor" href="#templates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Templates</h2>
 <h3>
 <a id="user-content-requirements_devtxt" class="anchor" href="#requirements_devtxt" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>requirements_dev.txt</h3>
-<pre><code>black==19.10b0
+<pre lang="text"><code>black==19.10b0
 grip==4.5.2
-pip==20.1.1
-pre-commit==2.5.1
-pytest==5.4.3
-pytest-cov==2.9.0
+pip==20.2
+pre-commit==2.6.0
+pytest==6.0.1
+pytest-cov==2.10.0
 wheel==0.34.2
 </code></pre>
 <h3>
 <a id="user-content-test_project-namepy" class="anchor" href="#test_project-namepy" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>test_<strong>project-name</strong>.py</h3>
-<pre><code>""" Tests for 'project-name'"""
-import pytest
-def test_basic():
-    assert 2 == 3 , "This is supposed to fail"
-</code></pre>
+<div class="highlight highlight-source-python"><pre><span class="pl-s">""" Tests for 'project-name'"""</span>
+<span class="pl-k">import</span> <span class="pl-s1">pytest</span>
+<span class="pl-k">def</span> <span class="pl-en">test_basic</span>():
+    <span class="pl-k">assert</span> <span class="pl-c1">2</span> <span class="pl-c1">==</span> <span class="pl-c1">3</span> , <span class="pl-s">"This is supposed to fail"</span></pre></div>
 <h3>
 <a id="user-content-travisyml" class="anchor" href="#travisyml" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>.travis.yml</h3>
-<pre><code>dist: xenial
-language: python
-python: 3.8.3
-install:
-- pip install -r requirements_dev.txt
-script:
-- black --check .
-- pytest
-env:
-- PYTHONBREAKPOINT=0
-</code></pre>
+<div class="highlight highlight-source-yaml"><pre>---
+
+<span class="pl-ent">dist</span>: <span class="pl-s">xenial</span>
+<span class="pl-ent">language</span>: <span class="pl-s">python</span>
+<span class="pl-ent">python</span>: <span class="pl-s">3.8.3</span>
+<span class="pl-ent">install</span>:
+  - <span class="pl-s">pip install -r requirements_dev.txt</span>
+<span class="pl-ent">script</span>:
+  - <span class="pl-s">black --line-length=79 --check .</span>
+<span class="pl-ent">env</span>:
+  - <span class="pl-s">PYTHONBREAKPOINT=0</span>
+</pre></div>
 <h3>
 <a id="user-content-pre-commit-configyaml" class="anchor" href="#pre-commit-configyaml" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>.pre-commit-config.yaml</h3>
-<pre><code>repos:
-  - repo: 'https://github.com/psf/black'
-    rev: 19.10b0
-    hooks:
-      - id: black
-  - repo: 'https://github.com/pre-commit/pre-commit-hooks'
-    rev: v3.1.0
-    hooks:
-      - id: check-yaml
-      - id: end-of-file-fixer
-      - id: trailing-whitespace
-      - id: debug-statements
-      - id: check-merge-conflict
-      - id: check-xml
-      - id: check-json
-      - id: check-docstring-first
-      - id: requirements-txt-fixer
-      - id: detect-private-key
-  - repo: 'https://github.com/asottile/blacken-docs'
-    rev: v1.7.0
-    hooks:
-      - id: blacken-docs
-    additional_dependencies:
-      - black==19.3b0
-  - repo: 'https://github.com/asottile/setup-cfg-fmt'
-    rev: v1.9.0
-    hooks:
-      - id: setup-cfg-fmt
-  - repo: 'https://github.com/timothycrosley/isort'
-    rev: 4.3.21
-    hooks:
-      - id: isort
-  - repo: 'https://github.com/pre-commit/pygrep-hooks'
-    rev: v1.5.1
-    hooks:
-      - id: rst-backticks
-  - repo: 'https://github.com/adrienverge/yamllint.git'
-    rev: v1.23.0
-    hooks:
-      - id: yamllint
-    args:
-      - '--format'
-      - parsable
-      - '--strict'
-  - repo: 'https://github.com/Lucas-C/pre-commit-hooks-markup'
-    rev: v1.0.0
-    hooks:
-      - id: rst-linter
-</code></pre>
+<div class="highlight highlight-source-yaml"><pre>---
+<span class="pl-ent">repos</span>:
+  - <span class="pl-ent">repo</span>: <span class="pl-s"><span class="pl-pds">"</span>https://github.com/psf/black<span class="pl-pds">"</span></span>
+    <span class="pl-ent">rev</span>: <span class="pl-s">19.10b0</span>
+    <span class="pl-ent">hooks</span>:
+      - <span class="pl-ent">id</span>: <span class="pl-s">black</span>
+        <span class="pl-ent">args</span>: <span class="pl-s">[--line-length=79]</span>
+  - <span class="pl-ent">repo</span>: <span class="pl-s"><span class="pl-pds">"</span>https://github.com/pre-commit/pre-commit-hooks<span class="pl-pds">"</span></span>
+    <span class="pl-ent">rev</span>: <span class="pl-s">v3.2.0</span>
+    <span class="pl-ent">hooks</span>:
+      - <span class="pl-ent">id</span>: <span class="pl-s">check-yaml</span>
+      - <span class="pl-ent">id</span>: <span class="pl-s">end-of-file-fixer</span>
+      - <span class="pl-ent">id</span>: <span class="pl-s">trailing-whitespace</span>
+      - <span class="pl-ent">id</span>: <span class="pl-s">debug-statements</span>
+      - <span class="pl-ent">id</span>: <span class="pl-s">check-merge-conflict</span>
+      - <span class="pl-ent">id</span>: <span class="pl-s">check-xml</span>
+      - <span class="pl-ent">id</span>: <span class="pl-s">check-json</span>
+      - <span class="pl-ent">id</span>: <span class="pl-s">check-docstring-first</span>
+      - <span class="pl-ent">id</span>: <span class="pl-s">requirements-txt-fixer</span>
+      - <span class="pl-ent">id</span>: <span class="pl-s">detect-private-key</span>
+  - <span class="pl-ent">repo</span>: <span class="pl-s"><span class="pl-pds">"</span>https://github.com/asottile/blacken-docs<span class="pl-pds">"</span></span>
+    <span class="pl-ent">rev</span>: <span class="pl-s">v1.7.0</span>
+    <span class="pl-ent">hooks</span>:
+      - <span class="pl-ent">id</span>: <span class="pl-s">blacken-docs</span>
+        <span class="pl-ent">additional_dependencies</span>:
+          - <span class="pl-s">black==19.3b0</span>
+  - <span class="pl-ent">repo</span>: <span class="pl-s"><span class="pl-pds">"</span>https://github.com/asottile/setup-cfg-fmt<span class="pl-pds">"</span></span>
+    <span class="pl-ent">rev</span>: <span class="pl-s">v1.11.0</span>
+    <span class="pl-ent">hooks</span>:
+      - <span class="pl-ent">id</span>: <span class="pl-s">setup-cfg-fmt</span>
+  - <span class="pl-ent">repo</span>: <span class="pl-s"><span class="pl-pds">"</span>https://github.com/timothycrosley/isort<span class="pl-pds">"</span></span>
+    <span class="pl-ent">rev</span>: <span class="pl-s">5.2.2</span>
+    <span class="pl-ent">hooks</span>:
+      - <span class="pl-ent">id</span>: <span class="pl-s">isort</span>
+  - <span class="pl-ent">repo</span>: <span class="pl-s"><span class="pl-pds">"</span>https://github.com/pre-commit/pygrep-hooks<span class="pl-pds">"</span></span>
+    <span class="pl-ent">rev</span>: <span class="pl-s">v1.5.1</span>
+    <span class="pl-ent">hooks</span>:
+      - <span class="pl-ent">id</span>: <span class="pl-s">rst-backticks</span>
+  - <span class="pl-ent">repo</span>: <span class="pl-s"><span class="pl-pds">"</span>https://github.com/adrienverge/yamllint.git<span class="pl-pds">"</span></span>
+    <span class="pl-ent">rev</span>: <span class="pl-s">v1.24.2</span>
+    <span class="pl-ent">hooks</span>:
+      - <span class="pl-ent">id</span>: <span class="pl-s">yamllint</span>
+        <span class="pl-ent">args</span>:
+          - <span class="pl-s"><span class="pl-pds">"</span>--format<span class="pl-pds">"</span></span>
+          - <span class="pl-s">parsable</span>
+          - <span class="pl-s"><span class="pl-pds">"</span>--strict<span class="pl-pds">"</span></span>
+  - <span class="pl-ent">repo</span>: <span class="pl-s"><span class="pl-pds">"</span>https://github.com/Lucas-C/pre-commit-hooks-lxml<span class="pl-pds">"</span></span>
+    <span class="pl-ent">rev</span>: <span class="pl-s">v1.1.0</span>
+    <span class="pl-ent">hooks</span>:
+      - <span class="pl-ent">id</span>: <span class="pl-s">forbid-html-img-without-alt-text</span>
+  - <span class="pl-ent">repo</span>: <span class="pl-s"><span class="pl-pds">"</span>https://github.com/Lucas-C/pre-commit-hooks-markup<span class="pl-pds">"</span></span>
+    <span class="pl-ent">rev</span>: <span class="pl-s">v1.0.0</span>
+    <span class="pl-ent">hooks</span>:
+      - <span class="pl-ent">id</span>: <span class="pl-s">rst-linter</span>
+  - <span class="pl-ent">repo</span>: <span class="pl-s">https://github.com/prettier/prettier</span>
+    <span class="pl-ent">rev</span>: <span class="pl-s"><span class="pl-pds">"</span>2.1.2<span class="pl-pds">"</span></span>
+    <span class="pl-ent">hooks</span>:
+      - <span class="pl-ent">id</span>: <span class="pl-s">prettier</span></pre></div>
 <h3>
 <a id="user-content-readmemd" class="anchor" href="#readmemd" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>README.md</h3>
-<pre><code># Heading
+<div class="highlight highlight-source-gfm"><pre><span class="pl-mh"><span class="pl-mh">#</span><span class="pl-mh"> </span>Heading</span>
 
 Subheading
 
-## Sections
+<span class="pl-mh"><span class="pl-mh">##</span><span class="pl-mh"> </span>Sections</span>
 
-1. Load Data
-2. 
+<span class="pl-v">1.</span> Load Data
+<span class="pl-v">2.</span> .
 
-## Notes
+<span class="pl-mh"><span class="pl-mh">##</span><span class="pl-mh"> </span>Notes</span>
 
-1. 
+<span class="pl-v">1.</span> .
 
-```python
+<span class="pl-c1">```python</span><span class="pl-s1"></span>
+<span class="pl-s1"></span>
+<span class="pl-s1"></span><span class="pl-c1">```</span>
 
-```
+<span class="pl-mh"><span class="pl-mh">##</span><span class="pl-mh"> </span>Output</span>
 
-## Output
+<span class="pl-c1">```markdown</span>
 
-```markdown
+<span class="pl-c1">```</span>
 
-```
-
-## Figures
+<span class="pl-mh"><span class="pl-mh">##</span><span class="pl-mh"> </span>Figures</span>
 
 Add figures
 
-## Project status
+<span class="pl-mh"><span class="pl-mh">##</span><span class="pl-mh"> </span>Project status</span>
 
-Project 
+Project is</pre></div>
+<h3>
+<a id="user-content-configjson" class="anchor" href="#configjson" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Config.json</h3>
+<div class="highlight highlight-source-json"><pre>{
+  <span class="pl-s"><span class="pl-pds">"</span>logging<span class="pl-pds">"</span></span>: {
+    <span class="pl-s"><span class="pl-pds">"</span>version<span class="pl-pds">"</span></span>: <span class="pl-c1">1</span>,
+    <span class="pl-s"><span class="pl-pds">"</span>formatters<span class="pl-pds">"</span></span>: {
+      <span class="pl-s"><span class="pl-pds">"</span>simple<span class="pl-pds">"</span></span>: {
+        <span class="pl-s"><span class="pl-pds">"</span>format<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>%(name)s - %(asctime)s-%(process)d-%(levelname)s-%(message)s<span class="pl-pds">"</span></span>
+      }
+    },
+    <span class="pl-s"><span class="pl-pds">"</span>handlers<span class="pl-pds">"</span></span>: {
+      <span class="pl-s"><span class="pl-pds">"</span>console<span class="pl-pds">"</span></span>: {
+        <span class="pl-s"><span class="pl-pds">"</span>class<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>logging.StreamHandler<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>level<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>DEBUG<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>formatter<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>simple<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>stream<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>ext://sys.stdout<span class="pl-pds">"</span></span>
+      },
+      <span class="pl-s"><span class="pl-pds">"</span>fileHandler<span class="pl-pds">"</span></span>: {
+        <span class="pl-s"><span class="pl-pds">"</span>class<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>logging.FileHandler<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>level<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>DEBUG<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>formatter<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>simple<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>filename<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>server.log<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>mode<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>w<span class="pl-pds">"</span></span>
+      }
+    },
+    <span class="pl-s"><span class="pl-pds">"</span>loggers<span class="pl-pds">"</span></span>: {
+      <span class="pl-s"><span class="pl-pds">"</span>appLogger<span class="pl-pds">"</span></span>: {
+        <span class="pl-s"><span class="pl-pds">"</span>level<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>DEBUG<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>handlers<span class="pl-pds">"</span></span>: [<span class="pl-s"><span class="pl-pds">"</span>console<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>fileHandler<span class="pl-pds">"</span></span>],
+        <span class="pl-s"><span class="pl-pds">"</span>propagate<span class="pl-pds">"</span></span>: <span class="pl-c1">false</span>
+      }
+    },
+    <span class="pl-s"><span class="pl-pds">"</span>root<span class="pl-pds">"</span></span>: {
+      <span class="pl-s"><span class="pl-pds">"</span>level<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>DEBUG<span class="pl-pds">"</span></span>,
+      <span class="pl-s"><span class="pl-pds">"</span>handlers<span class="pl-pds">"</span></span>: [<span class="pl-s"><span class="pl-pds">"</span>console<span class="pl-pds">"</span></span>]
+    }
+  }
+}
+</pre></div>
+<h3>
+<a id="user-content-docstringsmd" class="anchor" href="#docstringsmd" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>docstrings.md</h3>
+<div class="highlight highlight-source-gfm"><pre><span class="pl-mh"><span class="pl-mh">#</span><span class="pl-mh"> </span>Docstrings</span>
+
+<span class="pl-mh"><span class="pl-mh">##</span><span class="pl-mh"> </span>Sections</span>
+
+<span class="pl-v">-</span> [<span class="pl-e">Docstrings</span>](#docstrings)
+  <span class="pl-v">-</span> [<span class="pl-e">Sections</span>](#sections)
+  <span class="pl-v">-</span> [<span class="pl-e">Method docstring</span>](#method-docstring)
+  <span class="pl-v">-</span> [<span class="pl-e">Class docstring</span>](#class-docstring)
+  <span class="pl-v">-</span> [<span class="pl-e">Module docstring</span>](#module-docstring)
+
+<span class="pl-mh"><span class="pl-mh">##</span><span class="pl-mh"> </span>Method docstring</span>
+
+<span class="pl-c1">```python</span><span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-s"><span class="pl-k">r</span><span class="pl-pds">"""</span>Summarize the function in one line.</span></span>
+<span class="pl-s1"><span class="pl-s"></span></span>
+<span class="pl-s1"><span class="pl-s">    Several sentences providing an extended description. Refer to</span></span>
+<span class="pl-s1"><span class="pl-s">    variables using back-ticks, e.g. `var`.</span></span>
+<span class="pl-s1"><span class="pl-s"></span></span>
+<span class="pl-s1"><span class="pl-s">    Parameters</span></span>
+<span class="pl-s1"><span class="pl-s">    ----------</span></span>
+<span class="pl-s1"><span class="pl-s">    var1 : array_like</span></span>
+<span class="pl-s1"><span class="pl-s">        Array_like means all those objects -- lists, nested lists, etc. --</span></span>
+<span class="pl-s1"><span class="pl-s">        that can be converted to an array.  We can also refer to</span></span>
+<span class="pl-s1"><span class="pl-s">        variables like `var1`.</span></span>
+<span class="pl-s1"><span class="pl-s">    var2 : int</span></span>
+<span class="pl-s1"><span class="pl-s">        The type above can either refer to an actual Python type</span></span>
+<span class="pl-s1"><span class="pl-s">        (e.g. ``int``), or describe the type of the variable in more</span></span>
+<span class="pl-s1"><span class="pl-s">        detail, e.g. ``(N,) ndarray`` or ``array_like``.</span></span>
+<span class="pl-s1"><span class="pl-s">    *args : iterable</span></span>
+<span class="pl-s1"><span class="pl-s">        Other arguments.</span></span>
+<span class="pl-s1"><span class="pl-s">    long_var_name : {'hi', 'ho'}, optional</span></span>
+<span class="pl-s1"><span class="pl-s">        Choices in brackets, default first when optional.</span></span>
+<span class="pl-s1"><span class="pl-s">    **kwargs : dict</span></span>
+<span class="pl-s1"><span class="pl-s">        Keyword arguments.</span></span>
+<span class="pl-s1"><span class="pl-s"></span></span>
+<span class="pl-s1"><span class="pl-s">    Returns</span></span>
+<span class="pl-s1"><span class="pl-s">    -------</span></span>
+<span class="pl-s1"><span class="pl-s">    type</span></span>
+<span class="pl-s1"><span class="pl-s">        Explanation of anonymous return value of type ``type``.</span></span>
+<span class="pl-s1"><span class="pl-s">    describe : type</span></span>
+<span class="pl-s1"><span class="pl-s">        Explanation of return value named `describe`.</span></span>
+<span class="pl-s1"><span class="pl-s">    out : type</span></span>
+<span class="pl-s1"><span class="pl-s">        Explanation of `out`.</span></span>
+<span class="pl-s1"><span class="pl-s">    type_without_description</span></span>
+<span class="pl-s1"><span class="pl-s"></span></span>
+<span class="pl-s1"><span class="pl-s">    Other Parameters</span></span>
+<span class="pl-s1"><span class="pl-s">    ----------------</span></span>
+<span class="pl-s1"><span class="pl-s">    only_seldom_used_keywords : type</span></span>
+<span class="pl-s1"><span class="pl-s">        Explanation.</span></span>
+<span class="pl-s1"><span class="pl-s">    common_parameters_listed_above : type</span></span>
+<span class="pl-s1"><span class="pl-s">        Explanation.</span></span>
+<span class="pl-s1"><span class="pl-s"></span></span>
+<span class="pl-s1"><span class="pl-s">    Raises</span></span>
+<span class="pl-s1"><span class="pl-s">    ------</span></span>
+<span class="pl-s1"><span class="pl-s">    BadException</span></span>
+<span class="pl-s1"><span class="pl-s">        Because you shouldn't have done that.</span></span>
+<span class="pl-s1"><span class="pl-s"></span></span>
+<span class="pl-s1"><span class="pl-s">    See Also</span></span>
+<span class="pl-s1"><span class="pl-s">    --------</span></span>
+<span class="pl-s1"><span class="pl-s">    numpy.array : Relationship (optional).</span></span>
+<span class="pl-s1"><span class="pl-s">    numpy.ndarray : Relationship (optional), which could be fairly long, in</span></span>
+<span class="pl-s1"><span class="pl-s">                    which case the line wraps here.</span></span>
+<span class="pl-s1"><span class="pl-s">    numpy.dot, numpy.linalg.norm, numpy.eye</span></span>
+<span class="pl-s1"><span class="pl-s"></span></span>
+<span class="pl-s1"><span class="pl-s">    Notes</span></span>
+<span class="pl-s1"><span class="pl-s">    -----</span></span>
+<span class="pl-s1"><span class="pl-s">    Notes about the implementation algorithm (if needed).</span></span>
+<span class="pl-s1"><span class="pl-s"></span></span>
+<span class="pl-s1"><span class="pl-s">    This can have multiple paragraphs.</span></span>
+<span class="pl-s1"><span class="pl-s"></span></span>
+<span class="pl-s1"><span class="pl-s">    You may include some math:</span></span>
+<span class="pl-s1"><span class="pl-s"></span></span>
+<span class="pl-s1"><span class="pl-s">    .. math:: X(e^{j\omega } ) = x(n)e^{ - j\omega n}</span></span>
+<span class="pl-s1"><span class="pl-s"></span></span>
+<span class="pl-s1"><span class="pl-s">    And even use a Greek symbol like :math:`\omega` inline.</span></span>
+<span class="pl-s1"><span class="pl-s"></span></span>
+<span class="pl-s1"><span class="pl-s">    References</span></span>
+<span class="pl-s1"><span class="pl-s">    ----------</span></span>
+<span class="pl-s1"><span class="pl-s">    Cite the relevant literature, e.g. [1]_.  You may also cite these</span></span>
+<span class="pl-s1"><span class="pl-s">    references in the notes section above.</span></span>
+<span class="pl-s1"><span class="pl-s"></span></span>
+<span class="pl-s1"><span class="pl-s">    .. [1] O. McNoleg, "The integration of GIS, remote sensing,</span></span>
+<span class="pl-s1"><span class="pl-s">       expert systems and adaptive co-kriging for environmental habitat</span></span>
+<span class="pl-s1"><span class="pl-s">       modelling of the Highland Haggis using object-oriented, fuzzy-logic</span></span>
+<span class="pl-s1"><span class="pl-s">       and neural-network techniques," Computers &amp; Geosciences, vol. 22,</span></span>
+<span class="pl-s1"><span class="pl-s">       pp. 585-588, 1996.</span></span>
+<span class="pl-s1"><span class="pl-s"></span></span>
+<span class="pl-s1"><span class="pl-s">    Examples</span></span>
+<span class="pl-s1"><span class="pl-s">    --------</span></span>
+<span class="pl-s1"><span class="pl-s">    These are written in doctest format, and should illustrate how to</span></span>
+<span class="pl-s1"><span class="pl-s">    use the function.</span></span>
+<span class="pl-s1"><span class="pl-s"></span></span>
+<span class="pl-s1"><span class="pl-s">    <span class="pl-k">&gt;&gt;&gt; </span>a = [1, 2, 3]</span></span>
+<span class="pl-s1"><span class="pl-s">    <span class="pl-k">&gt;&gt;&gt; </span>print([x + 3 for x in a])</span></span>
+<span class="pl-s1"><span class="pl-s">    [4, 5, 6]</span></span>
+<span class="pl-s1"><span class="pl-s">    <span class="pl-k">&gt;&gt;&gt; </span>print("a\nb")</span></span>
+<span class="pl-s1"><span class="pl-s">    a</span></span>
+<span class="pl-s1"><span class="pl-s">    b</span></span>
+<span class="pl-s1"><span class="pl-s">    <span class="pl-pds">"""</span></span></span>
+<span class="pl-s1"></span><span class="pl-c1">```</span>
+
+Source: https://gist.github.com/jakevdp/3808292
+
+<span class="pl-mh"><span class="pl-mh">##</span><span class="pl-mh"> </span>Class docstring</span>
+
+<span class="pl-c1">```python</span><span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-s"><span class="pl-k">r</span><span class="pl-pds">"""</span>The summary line for a class docstring should fit on one line.</span></span>
+<span class="pl-s1"><span class="pl-s"></span></span>
+<span class="pl-s1"><span class="pl-s">    If the class has public attributes, they may be documented here</span></span>
+<span class="pl-s1"><span class="pl-s">    in an ``Attributes`` section and follow the same formatting as a</span></span>
+<span class="pl-s1"><span class="pl-s">    function's ``Args`` section. Alternatively, attributes may be documented</span></span>
+<span class="pl-s1"><span class="pl-s">    inline with the attribute's declaration (see __init__ method below).</span></span>
+<span class="pl-s1"><span class="pl-s"></span></span>
+<span class="pl-s1"><span class="pl-s">    Properties created with the ``@property`` decorator should be documented</span></span>
+<span class="pl-s1"><span class="pl-s">    in the property's getter method.</span></span>
+<span class="pl-s1"><span class="pl-s"></span></span>
+<span class="pl-s1"><span class="pl-s">    Attributes</span></span>
+<span class="pl-s1"><span class="pl-s">    ----------</span></span>
+<span class="pl-s1"><span class="pl-s">    attr1 : str</span></span>
+<span class="pl-s1"><span class="pl-s">        Description of `attr1`.</span></span>
+<span class="pl-s1"><span class="pl-s">    attr2 : :obj:`int`, optional</span></span>
+<span class="pl-s1"><span class="pl-s">        Description of `attr2`.</span></span>
+<span class="pl-s1"><span class="pl-s"></span></span>
+<span class="pl-s1"><span class="pl-s">    Parameters</span></span>
+<span class="pl-s1"><span class="pl-s">    ----------</span></span>
+<span class="pl-s1"><span class="pl-s">    attr1 : str</span></span>
+<span class="pl-s1"><span class="pl-s">        Description of `attr1`.</span></span>
+<span class="pl-s1"><span class="pl-s">    attr2 : :obj:`int`, optional</span></span>
+<span class="pl-s1"><span class="pl-s">        Description of `attr2`.</span></span>
+<span class="pl-s1"><span class="pl-s"></span></span>
+<span class="pl-s1"><span class="pl-s">    Methods</span></span>
+<span class="pl-s1"><span class="pl-s">    ----------</span></span>
+<span class="pl-s1"><span class="pl-s">    method_name(c='rgb')</span></span>
+<span class="pl-s1"><span class="pl-s">        Description of public `method_name`.</span></span>
+<span class="pl-s1"><span class="pl-s">    method_name(signature)</span></span>
+<span class="pl-s1"><span class="pl-s">        Description of public `method_name`.</span></span>
+<span class="pl-s1"><span class="pl-s"></span></span>
+<span class="pl-s1"><span class="pl-s">    Examples</span></span>
+<span class="pl-s1"><span class="pl-s">    --------</span></span>
+<span class="pl-s1"><span class="pl-s">    These are written in doctest format, and should illustrate how to</span></span>
+<span class="pl-s1"><span class="pl-s">    use the function.</span></span>
+<span class="pl-s1"><span class="pl-s"></span></span>
+<span class="pl-s1"><span class="pl-s">    <span class="pl-k">&gt;&gt;&gt; </span>from view_api.models import APIInfo</span></span>
+<span class="pl-s1"><span class="pl-s">    <span class="pl-k">&gt;&gt;&gt; </span>a1 = APIInfo(</span></span>
+<span class="pl-s1"><span class="pl-s">    <span class="pl-k">... </span>    name = "APOD",</span></span>
+<span class="pl-s1"><span class="pl-s">    <span class="pl-k">... </span>    description = "Astronomy Picture of the Day",</span></span>
+<span class="pl-s1"><span class="pl-s">    <span class="pl-k">... </span>    link = "https://api.nasa.gov/planetary/apod",</span></span>
+<span class="pl-s1"><span class="pl-s">    <span class="pl-k">... </span>    image = "img/1.jpg",</span></span>
+<span class="pl-s1"><span class="pl-s">    <span class="pl-k">... </span>)</span></span>
+<span class="pl-s1"><span class="pl-s">    <span class="pl-k">&gt;&gt;&gt; </span>a1.save()</span></span>
+<span class="pl-s1"><span class="pl-s">    asyncio - 2020-10-18 05:53:05,483-5384-DEBUG-Using proactor: IocpProactor</span></span>
+<span class="pl-s1"><span class="pl-s">    <span class="pl-k">&gt;&gt;&gt; </span>a2 = APIInfo(</span></span>
+<span class="pl-s1"><span class="pl-s">    <span class="pl-k">... </span>    name = "EPIC",</span></span>
+<span class="pl-s1"><span class="pl-s">    <span class="pl-k">... </span>    description = "Latest Images from Earth Polychromatic Imaging Camera",</span></span>
+<span class="pl-s1"><span class="pl-s">    <span class="pl-k">... </span>    link = "https://api.nasa.gov/EPIC/api/natural",</span></span>
+<span class="pl-s1"><span class="pl-s">    <span class="pl-k">... </span>    image = "img/2.png",</span></span>
+<span class="pl-s1"><span class="pl-s">    <span class="pl-k">... </span>)</span></span>
+<span class="pl-s1"><span class="pl-s">    <span class="pl-k">&gt;&gt;&gt; </span>...</span></span>
+<span class="pl-s1"><span class="pl-s">    <span class="pl-k">&gt;&gt;&gt; </span>a2.save()</span></span>
+<span class="pl-s1"><span class="pl-s">    <span class="pl-pds">"""</span></span></span>
+<span class="pl-s1"></span><span class="pl-c1">```</span>
+
+Source: https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html
+
+<span class="pl-mh"><span class="pl-mh">##</span><span class="pl-mh"> </span>Module docstring</span>
+
+<span class="pl-c1">```python</span><span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-s"><span class="pl-k">r</span><span class="pl-pds">"""</span>Example Google style docstrings.</span></span>
+<span class="pl-s1"><span class="pl-s"></span></span>
+<span class="pl-s1"><span class="pl-s">This module demonstrates documentation as specified by the `Google Python</span></span>
+<span class="pl-s1"><span class="pl-s">Style Guide`_. Docstrings may extend over multiple lines. Sections are created</span></span>
+<span class="pl-s1"><span class="pl-s">with a section header and a colon followed by a block of indented text.</span></span>
+<span class="pl-s1"><span class="pl-s"></span></span>
+<span class="pl-s1"><span class="pl-s">Example:</span></span>
+<span class="pl-s1"><span class="pl-s">    Examples can be given using either the ``Example`` or ``Examples``</span></span>
+<span class="pl-s1"><span class="pl-s">    sections. Sections support any reStructuredText formatting, including</span></span>
+<span class="pl-s1"><span class="pl-s">    literal blocks::</span></span>
+<span class="pl-s1"><span class="pl-s"></span></span>
+<span class="pl-s1"><span class="pl-s">        $ python example_google.py</span></span>
+<span class="pl-s1"><span class="pl-s"></span></span>
+<span class="pl-s1"><span class="pl-s">Section breaks are created by resuming unindented text. Section breaks</span></span>
+<span class="pl-s1"><span class="pl-s">are also implicitly created anytime a new section starts.</span></span>
+<span class="pl-s1"><span class="pl-s"></span></span>
+<span class="pl-s1"><span class="pl-s">Attributes:</span></span>
+<span class="pl-s1"><span class="pl-s">    module_level_variable1 (int): Module level variables may be documented in</span></span>
+<span class="pl-s1"><span class="pl-s">        either the ``Attributes`` section of the module docstring, or in an</span></span>
+<span class="pl-s1"><span class="pl-s">        inline docstring immediately following the variable.</span></span>
+<span class="pl-s1"><span class="pl-s"></span></span>
+<span class="pl-s1"><span class="pl-s">        Either form is acceptable, but the two should not be mixed. Choose</span></span>
+<span class="pl-s1"><span class="pl-s">        one convention to document module level variables and be consistent</span></span>
+<span class="pl-s1"><span class="pl-s">        with it.</span></span>
+<span class="pl-s1"><span class="pl-s"></span></span>
+<span class="pl-s1"><span class="pl-s">Todo:</span></span>
+<span class="pl-s1"><span class="pl-s">    * For module TODOs</span></span>
+<span class="pl-s1"><span class="pl-s">    * You have to also use ``sphinx.ext.todo`` extension</span></span>
+<span class="pl-s1"><span class="pl-s"></span></span>
+<span class="pl-s1"><span class="pl-s">.. _Google Python Style Guide:</span></span>
+<span class="pl-s1"><span class="pl-s">   http://google.github.io/styleguide/pyguide.html</span></span>
+<span class="pl-s1"><span class="pl-s"></span></span>
+<span class="pl-s1"><span class="pl-s"><span class="pl-pds">"""</span></span></span>
+<span class="pl-s1"></span><span class="pl-c1">```</span>
+</pre></div>
+<h3>
+<a id="user-content-prettierignore" class="anchor" href="#prettierignore" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>.prettierignore</h3>
+<pre lang="config"><code># Ignore all YAML files:
+*.yml
+
+# Ignore all Markdown files:
+*.md
+
 </code></pre>
 
               </article>
